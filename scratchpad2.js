@@ -67,4 +67,5 @@ function searchRec(array,key,min,max) {
         }
 }
 
-console.log(binarySearch(['asd','qwe','rty','dfg'],'rty'));
+console.log(binarySearch(['asd','qwe','rty','dfg'],'asd'));
+

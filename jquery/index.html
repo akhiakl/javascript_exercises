@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .focused {
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="demo_form">
+            First name: <input type="text" name="fname"><br>
+            Last name: <input type="text" name="lname"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <div class = "color border border-secondary" style="background-color:yellow">
+            <p>Click the button to change the background color of this paragraph.</p>
+            <button>Click me!</button>
+        </div><br><br>
+        <div class="timentry border border-secondary">
+            <h1>Heading1</h1>
+            <h2>Heading2</h2>
+            <p>Paragraph</p>
+            <button>Button</button>
+            <div id="log"></div>
+        </div><br><br> 
+        <div class="content border border-secondary">
+            <input tabIndex="1">
+            <select tabIndex="3">
+            <option>select menu</option>
+            </select>
+            <p tabIndex="3">
+            A Paragraph
+            </p>
+        </div><br><br>
+        <div class="mouseEvent border border-secondary" style="height:100px;">
+            <div class="row">
+                <div class="col text-center"></div>
+            </div>
+        </div><br><br>
+        
+        <div class="target border border-primary">
+            <div id="logi"></div>
+            <p>para</p>
+            <span>span</span><br>
+            <button>New</button>
+        </div>
+    </div> 
+<footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $('document').ready(function() {
+            $('.demo_form input:text').on('change', function(){
+                $(this).after('<p>Hiiii!!</p>');
+            })
+            $('.color button').on('click', function() {
+                $(this).parent().css('background-color','green');
+            })
+            var prevTime; 
+            $('.timentry button').on('click', function(){
+                var currTime = new Date().getTime();
+                var diff = currTime - prevTime;
+                $('#log').html('<p>Time difference in millisecons : '+diff+'ms</p>')
+                prevTime = currTime;
+            })
+
+            $('.content input').focus(function() {
+                $(this).addClass('focused');
+            })
+            
+            $('.mouseEvent').mousedown(function() {
+                $('.col').html('<p class="m-4 text-info" >Mouse is clicked</p>');
+                $('.col p').fadeOut(2000);
+            })
+            $('.mouseEvent').mouseup(function() {
+                $('.col').html('<p class="m-4 text-warning" >Mouse is released</p>');
+                $('.col p').fadeOut(2000);
+            })
+
+            $('.target').click(function(event){
+                $('#logi').html(this.nodeName);
+            })
+
+        })
+    </script>
+</footer>
+</body>
+</html>
