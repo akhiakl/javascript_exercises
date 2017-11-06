@@ -17,7 +17,7 @@ console.log(array_Clone([1, 2, 4, 0]));
 console.log(array_Clone([1, 2, [4, 6, 8, 0]]));
 
 
-//First element of array
+// First element of array
 
 
 
@@ -25,7 +25,7 @@ function first(input, num) {
   if (num==null)
     return input[0];
   else if (num<0)
-    return input.slice(0);
+    return input.slice(num,0);
   else
   return input.slice(0,num);
 }
